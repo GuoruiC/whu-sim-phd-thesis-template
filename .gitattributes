@@ -1,0 +1,5 @@
+# Preserve the upstream files byte-for-byte, including line endings.
+whu-thesis.cls -text
+gbt7714-2005-author-year.bst -text
+gbt7714-2005-numerical.bst -text
+LICENSE -text

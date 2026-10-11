@@ -1,0 +1,19 @@
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+\documentclass[type=doctor,class=academic]{whu-thesis}
+\input{thesis-info.tex}
+\usepackage{whu-local}
+\begin{document}
+\whumainmatter
+\input{pages/chapter1.tex}
+\input{pages/chapter2.tex}
+\input{pages/chapter3.tex}
+\printbibliography
+\input{pages/achievement.tex}
+\ifdefined\WHUBlindReview\else
+  \begin{acknowledgements}
+    请在此填写致谢内容。
+  \end{acknowledgements}
+\fi
+% 附录按实际需要添加：\appendix 后使用 \chapter。
+\end{document}

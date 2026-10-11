@@ -1,0 +1,16 @@
+% !TeX program = xelatex
+% 书脊文字条：单独编译，题目和作者与 thesis-info.tex 保持一致。
+\documentclass[a4paper,fontset=windows]{ctexart}
+\usepackage[top=25mm,bottom=25mm,left=25mm,right=25mm]{geometry}
+\newcommand{\spinetitle}{博士学位论文题目}
+\newcommand{\spineauthor}{作者姓名}
+\begin{document}
+\thispagestyle{empty}
+\noindent
+\begin{minipage}[t][247mm][s]{14bp}
+  \fangsong\fontsize{14bp}{20bp}\selectfont\centering
+  \spinetitle\par
+  \vfill
+  \spineauthor\par
+\end{minipage}
+\end{document}

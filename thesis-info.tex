@@ -1,0 +1,45 @@
+% 所有示例信息均为占位内容，请在写作前替换。
+\whusetup{
+  info = {
+    title = {博士学位论文题目},
+    title* = {Title of the Doctoral Dissertation},
+    department = {信息管理学院},
+    department* = {School of Information Management},
+    author = {作者姓名},
+    author* = {Author Name},
+    student-id = {请填写学号},
+    supervisor = {导师姓名},
+    supervisor* = {Supervisor Name},
+    academic-title = {教授},
+    academic-title* = {Professor},
+    major = {学科、专业名称},
+    major* = {Discipline and Major},
+    research-area = {研究方向},
+    research-area* = {Research Area},
+    year = 2026,
+    month = 10,
+    clc = {},
+    udc = {},
+    secret-level = {},
+    keywords = {关键词一,关键词二,关键词三},
+    keywords* = {Keyword one,Keyword two,Keyword three}
+  },
+  style = {
+    font = times,
+    math-font = termes,
+    cjk-font = windows,
+    cjk-fakefont = true,
+    bib-backend = bibtex,
+    bib-style = author-year,
+    bib-resource = {ref/references.bib},
+    chapter-page-header = true,
+    library = true,
+    license = false
+  }
+}
+% 顺序编码制也是本地附页允许的格式：将 author-year 改为 numerical。
+% license=false 只关闭上游文末授权书，本地版在声明后输出授权书。
+\ifdefined\WHUBlindReview
+  \whusetup{info={author={},author*={},supervisor={},supervisor*={},
+    academic-title={},academic-title*={},student-id={}}}
+\fi
