@@ -28,9 +28,20 @@
 latexmk -xelatex main.tex
 ```
 
-输出为 `main.pdf`。不用 latexmk 时，依次运行 `xelatex main`、`bibtex main`、`xelatex main`、`xelatex main`。
+输出为 `main.pdf`。不用 latexmk 时，先运行 `xelatex main`；正文有引用或使用了 `\nocite` 时，再运行 `bibtex main`、`xelatex main`、`xelatex main`。
+
+没有文献条目，或 `.bib` 中有条目但正文尚未引用时，模板自动跳过参考文献输出及 BibTeX，仍可正常编译。加入 `\cite`、`\citet`、`\citep`、`\parencite` 等引用后自动恢复；需要列出未引用的条目时，在 `\printbibliography` 前使用 `\nocite{文献键}` 或 `\nocite{*}`。真实的文献语法错误和缺失引用键仍会报告。
+
+暂时禁用 `.bib` 条目应使用 `@comment{ ... }` 包住完整条目，不要用 `%` 逐行注释含 `@book`、`@article` 的条目。
 
 当前示例仅含占位文字、一个占位图框和两条真实书籍参考文献；不会预填研究结论或个人科研成果。默认学院为信息管理学院，专业名称需按自己的培养信息填写。
+
+
+### VS Code 编译
+
+项目自带 `.vscode/settings.json`。在 VS Code 中打开本目录，使用 LaTeX Workshop 编译 `main.tex`；默认配方为 `latexmk (XeLaTeX)`。原来的 `xelatex -> bibtex -> xelatex*2` 配方也可使用，其中 BibTeX 步骤会通过 `tools/bibtex-if-needed.ps1` 在没有引用时自动跳过；有引用时照常运行 BibTeX。该四步配方的条件脚本适用于 Windows PowerShell。
+
+模板的回归检查可运行 `powershell -NoProfile -ExecutionPolicy Bypass -File tests/bibliography-smoke.ps1`，覆盖空文献库、未引用条目、正常引用、移除引用后的旧缓存及 `\nocite{*}`。
 
 ## 字体与在线编译
 

@@ -225,6 +225,28 @@
     \group_end:
   }
 
+% 无引用时不启动 BibTeX；所有 natbib 引用及 \nocite 均恢复参考文献输出。
+\newif\ifWHUHasCitations
+\ctex_at_end_preamble:n
+  {
+    \tl_if_eq:NnT \l__whu_bib_backend_tl { bibtex }
+      {
+        \pretocmd{\NAT@sort@cites}
+          {\global\WHUHasCitationstrue}{}{}
+        \pretocmd{\nocite}
+          {\global\WHUHasCitationstrue}{}{}
+        \NewCommandCopy\__whu_local_printbibliography\printbibliography
+        \RenewDocumentCommand\printbibliography{o}
+          {
+            \ifWHUHasCitations
+              \IfNoValueTF{#1}
+                {\__whu_local_printbibliography}
+                {\__whu_local_printbibliography[#1]}
+            \fi
+          }
+      }
+  }
+
 % 附页五（1）：参考文献标题黑体四号加粗并列入目录。
 \ctex_after_end_preamble:n
   {

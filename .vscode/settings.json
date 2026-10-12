@@ -1,0 +1,59 @@
+{
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.build.forceRecipeUsage": true,
+  "latex-workshop.latex.tools": [
+    {
+      "name": "whu-latexmk-xelatex",
+      "command": "latexmk",
+      "args": [
+        "-xelatex",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "whu-xelatex",
+      "command": "xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "whu-bibtex-if-needed",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "%DIR%/tools/bibtex-if-needed.ps1",
+        "-Document",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (XeLaTeX)",
+      "tools": [
+        "whu-latexmk-xelatex"
+      ]
+    },
+    {
+      "name": "xelatex -> bibtex -> xelatex*2",
+      "tools": [
+        "whu-xelatex",
+        "whu-bibtex-if-needed",
+        "whu-xelatex",
+        "whu-xelatex"
+      ]
+    }
+  ]
+}
