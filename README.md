@@ -43,7 +43,7 @@ latexmk -xelatex main.tex
 
 模板的回归检查可运行 `powershell -NoProfile -ExecutionPolicy Bypass -File tests/bibliography-smoke.ps1`，覆盖空文献库、未引用条目、正常引用、移除引用后的旧缓存及 `\nocite{*}`。
 
-英文封面除题目和作者外，还显示导师（`Supervised by`）、英文学院名、Wuhan University 及年月，自动读取 `thesis-info.tex` 中的对应字段。导师职称 `Professor` 显示为 `Prof.`。这些附加信息是模板的排版补充；英文题目二号、作者四号仍按附件要求设置。中文论文题目采用正常字距，姓名、专业和研究方向不做分散对齐。
+英文封面除题目和作者外，还显示导师（`Supervised by`）、英文学院名、Wuhan University 及年月，自动读取 `thesis-info.tex` 中的对应字段。导师职称 `Professor` 显示为 `Prof.`。这些附加信息是模板的排版补充；英文题目二号、作者四号仍按附件要求设置。中文论文题目采用正常字距；封面信息采用三列表格，标签与填写内容按 Word 附页分散对齐，导师姓名和职称位于同一单元格。
 
 ## 字体与在线编译
 

@@ -50,12 +50,17 @@
         ([yshift=-186mm]current~page.north)
         {\songti\zihao{4}\renewcommand\arraystretch{1.35}
           \AddToHookNext{env/tabular/begin}{\songti\zihao{4}}
-          \begin{tabular}{@{}p{48mm}@{}c@{\hspace{2mm}}>{\raggedright\arraybackslash\ziju{0}}p{57mm}@{}}
-            \__whu_spread_box:nn{48mm}{研究生姓名} & ： & \l__whu_info_author_tl \\
-            指导教师姓名、职称 & ： & \l__whu_info_supervisor_tl\quad
-              \l__whu_info_supervisor_academic_title_tl \\
-            \__whu_spread_box:nn{48mm}{学科、专业名称} & ： & \l__whu_info_major_tl \\
-            \__whu_spread_box:nn{48mm}{研究方向} & ： & \l__whu_info_research_area_tl
+          % 三列表格：左右字段各自分散对齐，导师姓名与职称共享同一格。
+          \begin{tabular}{@{}p{48mm}@{}c@{\hspace{2mm}}p{57mm}@{}}
+            \__whu_spread_box:nn{48mm}{研究生姓名} & ： &
+              \__whu_spread_box:nn{57mm}{\l__whu_info_author_tl} \\
+            \__whu_spread_box:nn{48mm}{指导教师姓名、职称} & ： &
+              \__whu_spread_box:nn{57mm}{\l__whu_info_supervisor_tl
+                \l__whu_info_supervisor_academic_title_tl} \\
+            \__whu_spread_box:nn{48mm}{学科、专业名称} & ： &
+              \__whu_spread_box:nn{57mm}{\l__whu_info_major_tl} \\
+            \__whu_spread_box:nn{48mm}{研究方向} & ： &
+              \__whu_spread_box:nn{57mm}{\l__whu_info_research_area_tl}
           \end{tabular}};
       \node[anchor=center,inner~sep=0pt] at
         ([yshift=-263mm]current~page.north)
