@@ -66,16 +66,17 @@
     \clearpage
   }
 
-% 附页二：标题按明确写出的“黑体小二号”，正文“宋体四号”。
+% 附页二：按 Word 附页实际设置，正文小四，最小行距 28 磅。
 \cs_set_protected:Npn \__whu_doctor_statement:
   {
     \newgeometry{top=25.4mm,bottom=25.4mm,left=31.75mm,right=31.75mm}
     \group_begin:
+      \linespread{1}\selectfont
       \ctexset{chapter={format=\heiti\zihao{-2}\centering,
         beforeskip=0pt,afterskip=32bp,pagestyle=empty}}
       \chapter*{论文原创性声明}
       \pdfbookmark{论文原创性声明}{local-statement}
-      \songti\fontsize{14bp}{28bp}\selectfont
+      \songti\fontsize{12bp}{28bp}\selectfont
       本人郑重声明：所呈交的学位论文，是本人在导师指导下，独立进行研究工作所取得的研究成果。除文中已经标明引用的内容外，本论文不包含任何其他个人或集体已发表或撰写的研究成果。对本文的研究做出贡献的个人和集体，均已在文中以明确方式标明。本声明的法律结果由本人承担。
       \par\vspace{30mm}
       \begin{flushright}
@@ -92,6 +93,7 @@
   {
     \newgeometry{top=25.4mm,bottom=25.4mm,left=31.75mm,right=31.75mm}
     \group_begin:
+      \linespread{1}\selectfont
       \ctexset{chapter={format=\songti\bfseries\zihao{4}\centering,
         beforeskip=0pt,afterskip=10bp,pagestyle=empty}}
       \chapter*{武汉大学学位论文使用授权协议书}
