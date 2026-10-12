@@ -3,6 +3,7 @@
 % The upstream class is kept unchanged. Local modifications are in this file.
 \ProvidesPackage{whu-local}[2026/10/10 WHU local doctoral thesis adaptation]
 \RequirePackage{booktabs}
+\RequirePackage{array}
 \hypersetup{hidelinks,hypertexnames=false}
 \ExplSyntaxOn
 \cs_new_protected:Npn\__whu_local_dotted_field:n #1
@@ -41,15 +42,15 @@
       \node[anchor=north,inner~sep=0pt] at
         ([yshift=-93mm]current~page.north)
         {\songti\bfseries\zihao{2}\ziju{1}博士学位论文};
-      \node[anchor=center,inner~sep=0pt,text~width=155mm,align=center] at
+      \node[anchor=center,inner~sep=0pt,text~width=155mm,align=flush~center] at
         ([yshift=-142mm]current~page.north)
-        {\kaishu\zihao{1}\linespread{1.15}\selectfont
+        {\kaishu\zihao{1}\ziju{0}\linespread{1.15}\selectfont
           \l__whu_info_title_tl};
       \node[anchor=north,inner~sep=0pt] at
         ([yshift=-186mm]current~page.north)
         {\songti\zihao{4}\renewcommand\arraystretch{1.35}
           \AddToHookNext{env/tabular/begin}{\songti\zihao{4}}
-          \begin{tabular}{@{}p{48mm}@{}c@{\hspace{2mm}}p{57mm}@{}}
+          \begin{tabular}{@{}p{48mm}@{}c@{\hspace{2mm}}>{\raggedright\arraybackslash\ziju{0}}p{57mm}@{}}
             \__whu_spread_box:nn{48mm}{研究生姓名} & ： & \l__whu_info_author_tl \\
             指导教师姓名、职称 & ： & \l__whu_info_supervisor_tl\quad
               \l__whu_info_supervisor_academic_title_tl \\
@@ -126,6 +127,22 @@
         \l__whu_info_title_en_tl\par}
       \vspace{22mm}
       {\normalfont\rmfamily\zihao{4}\l__whu_info_author_en_tl\par}
+      \vspace{25mm}
+      {\normalfont\rmfamily\zihao{4}
+        \textit{Supervised~by}\par
+        \vspace{3mm}
+        \tl_if_eq:NnTF\l__whu_info_supervisor_academic_title_en_tl{Professor}
+          {Prof.}{\l__whu_info_supervisor_academic_title_en_tl}
+        \c_space_tl\l__whu_info_supervisor_en_tl\par}
+      \vfill
+      {\normalfont\rmfamily\zihao{4}
+        \l__whu_info_department_en_tl\par
+        \vspace{2mm}
+        Wuhan~University\par
+        \vspace{2mm}
+        \clist_item:nn
+          {January,February,March,April,May,June,July,August,September,October,November,December}
+          {\l__whu_info_month_int},~\int_use:N\l__whu_info_year_int\par}
     \end{center}
     \clearpage
   }

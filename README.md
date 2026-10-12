@@ -43,6 +43,8 @@ latexmk -xelatex main.tex
 
 模板的回归检查可运行 `powershell -NoProfile -ExecutionPolicy Bypass -File tests/bibliography-smoke.ps1`，覆盖空文献库、未引用条目、正常引用、移除引用后的旧缓存及 `\nocite{*}`。
 
+英文封面除题目和作者外，还显示导师（`Supervised by`）、英文学院名、Wuhan University 及年月，自动读取 `thesis-info.tex` 中的对应字段。导师职称 `Professor` 显示为 `Prof.`。这些附加信息是模板的排版补充；英文题目二号、作者四号仍按附件要求设置。中文论文题目采用正常字距，姓名、专业和研究方向不做分散对齐。
+
 ## 字体与在线编译
 
 默认使用 Windows 中的宋体、黑体、楷体、仿宋和 Times New Roman，采用 XeLaTeX。字体不随项目分发。在 Overleaf 等没有这些字体的平台，可临时将 `cjk-font=windows` 改为 `fandol`、`font=times` 改为 `termes`；替代字体会改变字形及行宽，正式版仍需核对对应字体。数学字体保留 TeX Gyre Termes Math。
